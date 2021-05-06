@@ -1,5 +1,5 @@
 # WebBuddy
-WebBuddy is a Java application that allows you to make GET an POST requests
+WebBuddy is a Java application that allows you to make GET and POST requests without writing any code
 
 ---
 

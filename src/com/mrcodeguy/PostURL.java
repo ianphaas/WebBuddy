@@ -16,61 +16,39 @@ limitations under the License.
 
 package com.mrcodeguy;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class PostURL {
-    public String post(String urlString, String httpHeaders) {
-        StringBuilder response = new StringBuilder();
-        String formData;
+    StringBuilder responseString = new StringBuilder();
+    private final HttpClient httpClient = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_2)
+            .build();
 
+    public String post(String urlString, String postData) {
         try {
-            formData = URLEncoder.encode(httpHeaders, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            formData = "";
+            HttpRequest request = HttpRequest.newBuilder()
+                    .POST(buildFormData(postData))
+                    .uri(URI.create(urlString))
+                    .setHeader("User-Agent", "WebBuddy POST Client")
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            responseString.append(response.body());
+        } catch (IOException | InterruptedException e) {
             System.out.println(e.getLocalizedMessage());
             System.exit(1);
         }
 
-        try {
-            URL url = new URL(urlString);
-            HttpURLConnection urlcon = (HttpURLConnection) url.openConnection();
-            urlcon.setRequestMethod("POST");
-            urlcon.setDoOutput(true);
-            urlcon.setConnectTimeout(10000);
-            urlcon.setReadTimeout(10000);
-            urlcon.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            urlcon.setRequestProperty("Content-Length", Integer.toString(formData.length()));
-            urlcon.setUseCaches(false);
+        return responseString.toString();
+    }
 
-            DataOutputStream dos = new DataOutputStream(urlcon.getOutputStream());
-
-            dos.write(formData.getBytes("UTF-8"));
-            dos.flush();
-            dos.close();
-
-            if (urlcon.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                System.out.println("POST Succeeded");
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(urlcon.getInputStream()));
-
-                String line;
-
-                while((line = br.readLine()) != null) {
-                    response.append(line);
-                    response.append("\n");
-                }
-
-                urlcon.disconnect();
-            } else {
-                System.out.println("POST failed with status code " + urlcon.getResponseCode());
-            }
-        } catch (IOException e) {
-            System.out.println(e.getLocalizedMessage());
-            System.exit(1);
-        }
-        return response.toString();
+    private static HttpRequest.BodyPublisher buildFormData(String data){
+        return HttpRequest.BodyPublishers.ofString(data);
     }
 }

@@ -12,7 +12,7 @@ Go to https://github.com/thecodeguyexamples/WebBuddy/raw/main/WebBuddy-1.1.0.jar
 ## Usage
 Open the terminal for your operating system and navigate to the directory which contains the Jar file you downloaded. Then run the command:
 ~~~
-java -classpath . -jar WebBuddy.jar
+java -classpath . -jar WebBuddy-1.1.0.jar
 ~~~
 
 Thats it! If you have a feature suggestion or find a bug, please open an issue.

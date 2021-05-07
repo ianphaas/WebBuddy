@@ -7,7 +7,7 @@ WebBuddy is a Java application that allows you to make GET and POST requests wit
 *Note: I have not tested with any other versions of Java. If you test with a different version, please let me know if it works*
 
 ## Installation
-Go to https://github.com/thecodeguyexamples/WebBuddy/raw/main/WebBuddy.jar to download the Jar file.
+Go to https://github.com/thecodeguyexamples/WebBuddy/raw/main/WebBuddy-1.1.0.jar to download the Jar file.
 
 ## Usage
 Open the terminal for your operating system and navigate to the directory which contains the Jar file you downloaded. Then run the command:

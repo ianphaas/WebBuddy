@@ -34,10 +34,7 @@ public class PostWindow extends JFrame {
 
         add(instructionsLabel, BorderLayout.NORTH);
 
-        PostUrlTextFieldActionEventListener urlTextFieldListener = new PostUrlTextFieldActionEventListener();
-
-        urlTextFieldListener.headersField = headers;
-        urlTextFieldListener.urlField = url;
+        PostUrlTextFieldActionEventListener urlTextFieldListener = new PostUrlTextFieldActionEventListener(url, headers);
 
         JPanel textFieldPanel = new JPanel(new GridLayout(0, 1));
 

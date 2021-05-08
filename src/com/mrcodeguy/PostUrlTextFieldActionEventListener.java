@@ -23,6 +23,11 @@ public class PostUrlTextFieldActionEventListener implements ActionListener {
     public JTextField urlField;
     public JTextField headersField;
 
+    public PostUrlTextFieldActionEventListener(JTextField url, JTextField headers) {
+        urlField = url;
+        headersField = headers;
+    }
+
     public void actionPerformed(ActionEvent event) {
         PostURL post = new PostURL();
 

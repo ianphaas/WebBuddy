@@ -30,7 +30,7 @@ public class PostWindow extends JFrame {
 
         JTextField headers = new JTextField(30);
 
-        JLabel instructionsLabel = new JLabel("Type your \"URL\" in the URL box below, then type your parameters in the form of param=value&param2=value2&param3=value3 in the \"Parameters\" box below. Then press the enter key.", JLabel.CENTER);
+        JLabel instructionsLabel = new JLabel("<html>Type your URL in the \"URL\" box below, then type your parameters in the form of param=value&param2=value2&param3=value3 in the \"Parameters\" box below. Then press the enter key. Once the operation finishes, the page source will be displayed in the terminal.</html>", JLabel.CENTER);
 
         add(instructionsLabel, BorderLayout.NORTH);
 

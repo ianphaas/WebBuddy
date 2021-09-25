@@ -21,7 +21,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+/**
+ * Class for creating GET requests
+ *
+ * @author Ian Haas
+ */
 public class GetURL {
+
+    /**
+     * Performs a GET request on the specified URL
+     *
+     * @author Ian Haas
+     * @param urlString The URL to perform the GET request on
+     * @return Returns the response sent by the web server
+     */
     public String get(String urlString) {
         StringBuilder response = new StringBuilder();
 

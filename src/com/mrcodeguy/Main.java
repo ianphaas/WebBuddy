@@ -19,7 +19,18 @@ package com.mrcodeguy;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Main class for WebBuddy
+ *
+ * @author Ian Haas
+ */
 public class Main extends JFrame {
+
+    /**
+     * Creates the main window for WebBuddy
+     *
+     * @author Ian Haas
+     */
     public Main() {
         super("WebBuddy");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -57,6 +68,12 @@ public class Main extends JFrame {
         setJMenuBar(mainBar);
     }
 
+    /**
+     * Initializes WebBuddy
+     *
+     * @author Ian Haas
+     * @param args Not Used
+     */
     public static void main(String[] args) {
         Main main = new Main();
         main.setVisible(true);

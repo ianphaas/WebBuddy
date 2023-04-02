@@ -1,10 +1,10 @@
 # WebBuddy
-WebBuddy is a Java application that allows you to make GET and POST requests without writing any code
+WebBuddy is a Java application that allows you to make GET and POST requests without writing any code.
 
 ## Prerequisites
  - Java 17
 
-*Note: I have not tested with any other versions of Java. If you test with a different version, please let me know if it works*
+*Note: I have not tested with any other versions of Java. If you test with a different version, please let me know if it works.*
 
 ## Installation
 Go to https://github.com/thecodeguyexamples/WebBuddy/raw/main/WebBuddy-1.1.2.jar to download the Jar file.
